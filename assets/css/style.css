@@ -343,50 +343,47 @@ body {
 .nav-toggle-btn .open,
 .nav-toggle-btn.active .close { display: block; }
 
-OBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOB.navbar {
+.navbar {
   position: absolute;
   top: 100%;
   left: 0;
-OBOBOBOBOBOB  width: 100%;
+ width: 100%;
   background-color: var(--white);
-OBOB  padding-inline: 15px;
+ padding-inline: 15px;
   max-height: 0;
-OBOB  overflow: hidden;
+overflow: hidden;
   visibility: hidden;
   transition: 0.25s var(--cubic-out);
-OBOB}
+}
 
 .navbar.active {
   max-height: 300px;
   visibility: visible;
   transition-duration: 0.5s;
-OBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOBOB}
-OBOBOBOBOBOBOB
+
 .navbar-list { margin-block-end: 10px; }
-OBOBOB
+escOBescOBescOB
 .navbar-link {
-  color: var(--charcoal);
-OB  padding-block: 8px;
+  color: var(--charcoal);escOB
+  padding-block: 8px;
   line-height: 1.5;
   transition: var(--transition-1);
-OB}
+  escOB}
 
-.navbar-link:is(:hover, :focus) { color: var(--old-rose); }
+.navbar-link;is;hover, ;focus} { color: var(--old-rose); 
+}
 
-OBOBOBOBOBOBOBOBOBOB
-OBOB
 
-OBOBOBOBOBOBOBOBOBOBOBOB
-OB/*-----------------------------------*\
-  #HERO
-OB\*-----------------------------------*/
+
+
+OB\*-----------------------------------*/
 
 .hero {
   padding-block-start: calc(var(--section-padding) + 60px);
   text-align: center;
 }
 
-OBOB.hero .container {
+.hero .container {
   display: grid;
   gap: 60px;
 }
@@ -400,15 +397,16 @@ body {
   margin-inline: auto;
 }
 
-OBOB.hero-banner .w-100 { border-radius: 10px 30px; }
-OBOBOB
+.hero-banner .w-100 { 
+  border-radius: 10px 30px;
+ }
 .hero-banner::before {
-OBOBOB  top: 30px;
-OBOBOBOB  right: 30px;
+ top: 30px;
+ right: 30px;
   bottom: 0;
-OB  left: 0;
-OBOBOB  background-color: var(--light-pink);
-OB  border-radius: var(--radius-10);
+   left: 0;
+  background-color: var(--light-pink);
+ border-radius: var(--radius-10);
   z-index: -1;
 }
 
@@ -432,11 +430,11 @@ body {
   0%,
   50% { box-shadow: 0 0 0 0 hsla(0, 0%, 100%, 0.5); }
 
-OBOB  100% { box-shadow: 0 0 0 10px transparent; }
+escOBescOB  100% { box-shadow: 0 0 0 10px transparent; }
 }
 
 
-OB
+escOB
 
 
 /*-----------------------------------*\
