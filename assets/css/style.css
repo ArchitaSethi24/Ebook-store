@@ -364,13 +364,13 @@ overflow: hidden;
 .navbar-list { margin-block-end: 10px; }
 escOBescOBescOB
 .navbar-link {
-  color: var(--charcoal);escOB
+  color: var(--charcoal);
   padding-block: 8px;
   line-height: 1.5;
   transition: var(--transition-1);
-  escOB}
+  }
 
-.navbar-link;is;hover ;focus} { color var(--old-rose); 
+.navbar-linkishover focuscolor var--old-rose;
 }
 
 
