@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" />
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  
   <!-- 
     - primary meta tags
   -->
@@ -869,6 +871,7 @@ Haig has garnered critical acclaim and a dedicated following. Through his writin
       <!-- 
         - #CONTACT
       -->
+      
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
@@ -881,18 +884,70 @@ Haig has garnered critical acclaim and a dedicated following. Through his writin
           </h2>
           <div class="wrapper">
 
-            <form id="contact-form" class="contact-form" onsubmit="submitForm(event)">
+            <div class="review-container">
+              <h1>Leave a Review</h1>
+
+            <hr>
+
+            <br>
+            <form id="reviewForm" action="https://formsubmit.co/abhinavsharma172005@gmail.com" method="POST">
+                  <div class="rating-review">
+                      <label for="Name">UserName:</label>
+                      <input type="text" name="name" required>
+                  </div> 
+                  
+                  <div class="rating-review">
+                      <label for="Email">Email:</label>
+                      <input type="email" name="email" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="recipe-name">Your Contact Details:</label>
+                      <input type="number" name="Contact Number" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="rating">Your Rating:</label>
+                      <input type="number" id="rating" name="rating" min="1" max="5" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="review">Your Review:</label>
+                      <textarea id="userReview" name="userReview" required></textarea>
+                  </div>
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_next" value="thanks.html">
+                  <button type="submit">Submit</button>
+              </form>
+          </div>
+
+
+
+
+          
       
-              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
-      
-              <input type="email" name="email" id="email" placeholder="Your Email" required class="input-field">
-      
-              <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
-      
-              <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
-      
-              <button type="submit" class="btn btn-primary">Send Now</button>
-      
+          <script>
+              document.getElementById('reviewForm').addEventListener('submit', function(event) {
+                  
+                  event.preventDefault();
+                  const formData = new FormData(event.target);
+                  fetch(event.target.action, {
+                      method: 'POST',
+                      body: formData
+                  })
+                  .then(response => {
+                     
+                      if (response.ok) {
+                          window.location.replace('thanks.html');
+                      } else {
+                          alert('There was a problem submitting your review. Please try again.');
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                      alert('There was a problem submitting your review. Please try again.');
+                  });
+              });
+          </script>
+  
             </form>
       
           
@@ -1024,41 +1079,14 @@ Haig has garnered critical acclaim and a dedicated following. Through his writin
 
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; Team 16 G1 A SCM project ALL RIGHTS RESERVED 
+          &copy; Team 16 G1 A SCM project ALL RIGHTS RESERVED..
         </p>
       </div>
 
     </div>
   </footer>
 
+  
 
 
 
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js" defer></script>
-
-
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <script>
-    const submitForm = async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
-      localStorage.setItem('subject', subject);
-      localStorage.setItem('message', message);
-      window.location.href = 'feedback.html';
-    }
-  </script>
-
-</body>
-
-</html>
