@@ -550,117 +550,138 @@ the answer.
         - #PRICING
       -->
 
-      <section class="section pricing" id="pricing" aria-label="pricing">
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+        }
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .pricing-card-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .card-item {
+            margin-bottom: 5px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(productName, productPrice) {
+            const existingProductIndex = cart.findIndex(item => item.name === productName);
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity++;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + " has been added to your cart.");
+        }
+
+        function viewCart() {
+            window.location.href = 'cart.html';
+        }
+    </script>
+</head>
+<body>
+
+    <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
+            <p class="section-subtitle">Pricing</p>
+            <h2 class="h2 section-title has-underline">
+                Pricing based on their version
+                <span class="span has-before"></span>
+            </h2>
 
-          <p class="section-subtitle">Pricing</p>
+            <ul class="grid-list">
+                <li>
+                    <div class="pricing-card">
+                        <h3 class="h3 card-title">E-Book</h3>
+                        <data class="price" value="299">rs.299</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="addToCart('E-Book', 299)">BUY NOW</button>
+                    </div>
+                </li>
 
-          <h2 class="h2 section-title has-underline">
-            Pricing based on their version
-            <span class="span has-before"></span>
-          </h2>
+                <li>
+                    <div class="pricing-card bundle">
+                        <h3 class="h3 card-title">Bundle</h3>
+                        <data class="price" value="15">$15</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="addToCart('Bundle', 15)">BUY NOW</button>
+                    </div>
+                </li>
 
-          <ul class="grid-list">
+                <li>
+                    <div class="pricing-card">
+                        <h3 class="h3 card-title">Hardcover</h3>
+                        <data class="price" value="10">$10</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="addToCart('Hardcover', 10)">BUY NOW</button>
+                    </div>
+                </li>
+            </ul>
 
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">E-Book</h3>
-
-                <data class="price" value="5">$05</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card bundle">
-
-                <h3 class="h3 card-title">Bundle</h3>
-
-                <data class="price" value="15">$15</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-primary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">Hardcover</h3>
-
-                <data class="price" value="10">$10</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-          </ul>
-
+            <button class="btn btn-primary" onclick="viewCart()">View Cart</button>
         </div>
+    </section>
+
+</body>
+</html>
+
       </section>
 
 
