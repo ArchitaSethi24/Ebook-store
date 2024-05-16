@@ -140,6 +140,14 @@
             <label for="pincode">Pincode:</label>
             <input type="text" id="pincode" name="pincode" required>
 
+            <label for="Country">Country:</label>
+            <input type="Country" id="Country" name="state" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            
+
             <div class="qr-container">
                 <label for="qr-code">Scan the QR code to pay:</label>
                 <div style="width: 200px; margin: 0 auto;">
@@ -153,6 +161,35 @@
 
     <div class="dialog-overlay" id="dialog-overlay" style="display: none;">
         <div class="dialog-box">
+
+            <table>
+                
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>mein</td>
+                        <td>a</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Abhianv</td>
+                        <td>S</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Emily</td>
+                        <td>archita</td>
+                        <td>35</td>
+                    </tr>
+                    </tbody>
+            </table>
+
+            
             <h2>Order Placed Successfully!</h2>
             <p>Your payment details have been submitted.</p>
             <button onclick="closeDialog()">Close</button>
