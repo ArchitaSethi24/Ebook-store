@@ -137,6 +137,23 @@
             <label for="city">City:</label>
             <input type="text" id="city" name="city" required>
 
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            <fieldset>
+                <legend>Select Countries:</legend>
+                <input type="checkbox" id="india" name="country" value="India">
+                <label for="india">India</label><br>
+                <input type="checkbox" id="bangladesh" name="country" value="Bangladesh">
+                <label for="bangladesh">Bangladesh</label><br>
+                <input type="checkbox" id="pakistan" name="country" value="Pakistan">
+                <label for="pakistan">Pakistan</label><br>
+            </fieldset>
+
+
+
+
+
             <label for="pincode">Pincode:</label>
             <input type="text" id="pincode" name="pincode" required>
 
@@ -189,7 +206,7 @@
                     </tbody>
             </table>
 
-            
+
             <h2>Order Placed Successfully!</h2>
             <p>Your payment details have been submitted.</p>
             <button onclick="closeDialog()">Close</button>
