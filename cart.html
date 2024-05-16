@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff69b4; /* Hot pink */
+        }
+
+        .cart-item {
+            border: 2px solid #ff69b4; /* Hot pink border */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .cart-item h3 {
+            margin: 0 0 15px;
+            font-size: 24px;
+            color: #ff69b4; /* Hot pink */
+            font-weight: bold;
+        }
+
+        .cart-item p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .cart-item button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #bc4580; /* Hot pink */
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            background-color: #9a5e74; /* Darker pink on hover */
+        }
+
+        button{
+            font-size:17px;
+            background-color: rgb(127, 95, 101);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <h3>${item.name}</h3>
+                        <p>Price: $${item.price}</p>
+                        <p>Quantity: <button onclick="changeQuantity(${index}, -1)">-</button> ${item.quantity} <button onclick="changeQuantity(${index}, 1)">+</button></p>
+                        <button onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartContainer.appendChild(cartItem);
+                });
+            }
+        }
+
+        function changeQuantity(index, delta) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart[index].quantity + delta > 0) {
+                cart[index].quantity += delta;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            }
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function proceedToPayment() {
+            // Implement payment processing logic here
+           // alert('Proceeding to payment...');
+            window.location.href = 'payment.html';
+        }
+
+        window.onload = loadCart;
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart-container"></div>
+        <button onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+
+</body>
+</html>

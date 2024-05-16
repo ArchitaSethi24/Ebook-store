@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" />
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  
   <!-- 
     - primary meta tags
   -->
@@ -547,117 +550,138 @@ the answer.
         - #PRICING
       -->
 
-      <section class="section pricing" id="pricing" aria-label="pricing">
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            padding: 20px;
+        }
+        .pricing-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .pricing-card-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .card-item {
+            margin-bottom: 5px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(productName, productPrice) {
+            const existingProductIndex = cart.findIndex(item => item.name === productName);
+            if (existingProductIndex > -1) {
+                cart[existingProductIndex].quantity++;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(productName + " has been added to your cart.");
+        }
+
+        function viewCart() {
+            window.location.href = 'cart.html';
+        }
+    </script>
+</head>
+<body>
+
+    <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
+            <p class="section-subtitle">Pricing</p>
+            <h2 class="h2 section-title has-underline">
+                Pricing based on their version
+                <span class="span has-before"></span>
+            </h2>
 
-          <p class="section-subtitle">Pricing</p>
+            <ul class="grid-list">
+                <li>
+                    <div class="pricing-card">
+                        <h3 class="h3 card-title">E-Book</h3>
+                        <data class="price" value="299">rs.299</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="addToCart('E-Book', 299)">BUY NOW</button>
+                    </div>
+                </li>
 
-          <h2 class="h2 section-title has-underline">
-            Pricing based on their version
-            <span class="span has-before"></span>
-          </h2>
+                <li>
+                    <div class="pricing-card bundle">
+                        <h3 class="h3 card-title">Bundle</h3>
+                        <data class="price" value="15">$15</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="addToCart('Bundle', 15)">BUY NOW</button>
+                    </div>
+                </li>
 
-          <ul class="grid-list">
+                <li>
+                    <div class="pricing-card">
+                        <h3 class="h3 card-title">Hardcover</h3>
+                        <data class="price" value="10">$10</data>
+                        <ul class="pricing-card-list">
+                            <li class="card-item"><p class="card-text">Complete Book</p></li>
+                            <li class="card-item"><p class="card-text">PDF and EPUB</p></li>
+                            <li class="card-item"><p class="card-text">Hardcover Book</p></li>
+                            <li class="card-item"><p class="card-text">Access to Downloads</p></li>
+                        </ul>
+                        <button class="btn btn-secondary" onclick="addToCart('Hardcover', 10)">BUY NOW</button>
+                    </div>
+                </li>
+            </ul>
 
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">E-Book</h3>
-
-                <data class="price" value="5">$05</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card bundle">
-
-                <h3 class="h3 card-title">Bundle</h3>
-
-                <data class="price" value="15">$15</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-primary">BUY NOW</button>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="pricing-card">
-
-                <h3 class="h3 card-title">Hardcover</h3>
-
-                <data class="price" value="10">$10</data>
-
-                <ul class="pricing-card-list">
-
-                  <li class="card-item">
-                    <p class="card-text">Complete Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">PDF and EPUB</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
-                  </li>
-
-                  <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
-                  </li>
-
-                </ul>
-
-                <button class="btn btn-secondary">BUY NOW</button>
-
-              </div>
-            </li>
-
-          </ul>
-
+            <button class="btn btn-primary" onclick="viewCart()">View Cart</button>
         </div>
+    </section>
+
+</body>
+</html>
+
       </section>
 
 
@@ -881,18 +905,65 @@ Haig has garnered critical acclaim and a dedicated following. Through his writin
           </h2>
           <div class="wrapper">
 
-            <form id="contact-form" class="contact-form" onsubmit="submitForm(event)">
+            <div class="review-container">
+              <h1>Leave a Review</h1>
+              <form id="reviewForm" action="https://formsubmit.co/tinkuvyas06@gmail.com" method="POST">
+                  <div class="rating-review">
+                      <label for="Country">UserName:</label>
+                      <input type="text" name="name" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="Email">Email:</label>
+                      <input type="email" name="email" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="phone Number">Phone number:</label>
+                      <input type="number" name="Phone Number" required>
+                  </div>
 
-              <input type="text" name="name" id="name" placeholder="Your Name" required class="input-field">
-
-              <input type="email" name="email" id="email" placeholder="Your Email" required class="input-field">
-
-              <input type="text" name="subject" id="subject" placeholder="Subject" required class="input-field">
-
-              <textarea name="message" id="message" placeholder="Your Message" class="input-field"></textarea>
-
-              <button type="submit" class="btn btn-primary">Send Now</button>
-
+                  <div class="rating-review">
+                    <label for="Country ">Enter Your Country:</label>
+                    <input type="text" name="Country" required>
+                </div>
+                  <div class="rating-review">
+                      <label for="rating">Your Rating:</label>
+                      <input type="number" id="rating" name="rating" min="1" max="5" required>
+                  </div>
+                  <div class="rating-review">
+                      <label for="review">Your Review:</label>
+                      <textarea id="userReview" name="userReview" required></textarea>
+                  </div>
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_next" value="thanks.html">
+                  <button type="submit">Submit</button>
+              </form>
+          </div>
+      
+          <script>
+              document.getElementById('reviewForm').addEventListener('submit', function(event) {
+                  
+                  event.preventDefault();
+                  const formData = new FormData(event.target);
+                  fetch(event.target.action, {
+                      method: 'POST',
+                      body: formData
+                  })
+                  .then(response => {
+                     
+                      if (response.ok) {
+                          window.location.replace('thank.html');
+                      } else {
+                          alert('There was a problem submitting your review. Please try again.');
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                      alert('There was a problem submitting your review. Please try again.');
+                  });
+              });
+          </script>
+  
             </form>
 
           
@@ -1024,41 +1095,14 @@ Haig has garnered critical acclaim and a dedicated following. Through his writin
 
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; Team 16 G1 SCM project ALL RIGHTS RESERVED 
+          &copy; Team 16 G1 A SCM project ALL RIGHTS RESERVED..
         </p>
       </div>
 
     </div>
   </footer>
 
+  
 
 
 
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js" defer></script>
-
-
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <script>
-    const submitForm = async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
-      localStorage.setItem('subject', subject);
-      localStorage.setItem('message', message);
-      window.location.href = 'feedback.html';
-    }
-  </script>
-
-</body>
-
-</html>

@@ -1135,6 +1135,95 @@ textarea.input-field {
 
 }
 
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Section Title */
+.section-subtitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title .has-underline {
+  position: relative;
+}
+
+.section-title .span {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+}
+
+/* Form */
+.wrapper {
+  margin-top: 40px;
+}
+
+.review-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.rating-review {
+  margin-bottom: 15px;
+}
+
+.rating-review label {
+  display: block;
+  font-weight: bold;
+}
+
+.rating-review input[type="text"],
+.rating-review input[type="email"],
+.rating-review input[type="number"],
+.rating-review textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.rating-review textarea {
+  height: 100px;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
 
 
 
@@ -1203,5 +1292,6 @@ textarea.input-field {
   }
 
   .footer .logo { margin-block-end: 0; }
+  
 
 }
