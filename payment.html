@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff69b4; /* Hot pink */
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff; /* Blue button */
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .qr-container img {
+            width: 100%;
+            height: auto;
+            max-width: 200px; /* Adjust the max-width as needed */
+            border: 2px solid #ff69b4; /* Add a border if needed */
+            border-radius: 10px; /* Add border-radius if needed */
+        }
+
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .dialog-box {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Display the dialog box
+            document.getElementById('dialog-overlay').style.display = 'flex';
+        }
+
+        function closeDialog() {
+            document.getElementById('dialog-overlay').style.display = 'none';
+            // You can redirect the user to another page or perform other actions here after closing the dialog
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Enter Your Payment Details</h1>
+        <form id="payment-form" onsubmit="handleSubmit(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="landmark">Landmark:</label>
+            <input type="text" id="landmark" name="landmark" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            <fieldset>
+                <legend>Select Countries:</legend>
+                <input type="checkbox" id="india" name="country" value="India">
+                <label for="india">India</label><br>
+                <input type="checkbox" id="bangladesh" name="country" value="Bangladesh">
+                <label for="bangladesh">Bangladesh</label><br>
+                <input type="checkbox" id="pakistan" name="country" value="Pakistan">
+                <label for="pakistan">Pakistan</label><br>
+            </fieldset>
+
+
+
+
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" required>
+
+            <label for="Country">Country:</label>
+            <input type="Country" id="Country" name="state" required>
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            
+
+            <div class="qr-container">
+                <label for="qr-code">Scan the QR code to pay:</label>
+                <div style="width: 200px; margin: 0 auto;">
+                    <img id="qr-code" src="readme-images/qr.jpeg" alt="Owner's QR Code">
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="dialog-overlay" id="dialog-overlay" style="display: none;">
+        <div class="dialog-box">
+
+            <table>
+                
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>mein</td>
+                        <td>a</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Abhianv</td>
+                        <td>S</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Emily</td>
+                        <td>archita</td>
+                        <td>35</td>
+                    </tr>
+                    </tbody>
+            </table>
+
+
+            <h2>Order Placed Successfully!</h2>
+            <p>Your payment details have been submitted.</p>
+            <button onclick="closeDialog()">Close</button>
+        </div>
+    </div>
+
+</body>
+</html>
